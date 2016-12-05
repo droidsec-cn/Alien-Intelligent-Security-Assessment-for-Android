@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	 <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Alien is an intelligent, all-in-one open-source mobile application (Android), automated security-assessment framework capable of performing static, dynamic analysis and permissions-based classification.">
+		<meta name="author" content="Tommaso Fazio">
+		<title>Alien - Android Security Assessment</title>
+		<!-- Custom styles for this template -->
+		<link href="/static/css/cover.css" rel="stylesheet">
+		<link rel="icon" href="/static/favicon.ico">
+	</head>
+  <body>
+  
+	<div class="bottom-home" align="right">
+		<form action="/" method="GET">
+			<input type="image" src ="/static/img/home-button.png" alt="Homepage">
+		</form>
+	</div>
+	
+	<header>
+		<table class="table-h">
+			<tr>
+				<td>
+					<h1 class="title-big">Alien</h1>
+					<h2 class="title-normal">Results analysis:</h2>
+					<p align="left">The analysis of the <i>apk</i> file is finished,<br>
+					all the collected informations are saved in the directory identified by file's <b>md5</b> value.</p>
+				</td>
+				<td>
+					<img src="/static/img/logo-small.png" >
+				</td>
+			</tr>
+		</table>
+	</header>
+	
+	<section>
+		<table class="table-b">
+			<tr>
+				<td>
+					<p>If you want to train the Android-Permissions Classifier with this new Instance compile the form below:<br /></p>
+					<form action="/Train/" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="btn-default" align="left">
+						<input type="radio" name="app-type" id="app-type" value="good" class="button-r">good<br />
+						<input type="radio" name="app-type" id="app-type" value="malicious" class="button-r">malicious<br /><br />
+						<input type="submit" value="Train" class="button-home">
+					</div></br>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</section>
+	
+  </body>

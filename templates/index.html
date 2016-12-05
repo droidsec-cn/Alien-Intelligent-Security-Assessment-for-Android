@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	 <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Alien is an intelligent, all-in-one open-source mobile application (Android), automated security-assessment framework capable of performing static, dynamic analysis and permissions-based classification.">
+		<meta name="author" content="Tommaso Fazio">
+		<title>Alien - Android Security Assessment</title>
+		<!-- Custom styles for this template -->
+		<link href="/static/css/cover.css" rel="stylesheet">
+		<link rel="icon" href="/static/favicon.ico">
+	</head>
+  <body>
+  
+	<header>
+		<img src="/static/img/logo-home.png" >
+		<hgroup>
+			<h1 class="title-big">Alien</h1>
+			<h2 class="title-normal">Android Security Assessment</h2>
+		</hgroup>
+	</header>
+	
+	<section>
+		<p>
+		Choose an <i>apk</i> file to be analyze.<br />
+		Alien will perform static analysis and permissions-based classification immediately.
+		</p><br />
+		<form action="/Upload/" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div>
+				<input type="file" name="file" id="file" class="button-home">
+				<input type="submit" value="Upload" class="button-home">
+			</div></br>
+		</form>
+	</section>
+	
+	</br>
+	<footer class="foot-base">
+		<p>&copy; Alien - Android Security Assessment {% now "Y" %}. All Rights Reserved</p>
+	</footer>
+  
+  </body>
+</html>

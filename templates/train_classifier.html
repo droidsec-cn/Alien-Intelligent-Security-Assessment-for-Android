@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Alien is an intelligent, all-in-one open-source mobile application (Android), automated security-assessment framework capable of performing static, dynamic analysis and permissions-based classification.">
+		<meta name="author" content="Tommaso Fazio">
+		<title>Alien - Android Security Assessment</title>
+		<!-- Custom styles for this template -->
+		<link href="/static/css/cover.css" rel="stylesheet">
+		<link rel="icon" href="/static/favicon.ico">
+	</head>
+	<body>
+	
+		<div class="bottom-home" align="right">
+			<form action="/" method="GET">
+				<input type="image" src ="/static/img/home-button.png" alt="Homepage">
+			</form>
+		</div>
+		
+		<section>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Android-Permissions Classifier</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">Android-Permissions Classifier successfully trained.<br>
+						Below is presented the evaluation's result of the classifier.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left"><b>{{ title }}</b></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">{{ correctly }}</p><br>
+						<p align="left">{{ incorrectly }}</p><br>
+						<p align="left">{{ total }}</p><br>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+	</body>

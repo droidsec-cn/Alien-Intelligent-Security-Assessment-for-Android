@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Alien is an intelligent, all-in-one open-source mobile application (Android), automated security-assessment framework capable of performing static, dynamic analysis and permissions-based classification.">
+		<meta name="author" content="Tommaso Fazio">
+		<title>Alien - Android Security Assessment</title>
+		<!-- Custom styles for this template -->
+		<link href="/static/css/cover.css" rel="stylesheet">
+		<link rel="icon" href="/static/favicon.ico">
+	</head>
+	<body>
+	
+	<div class="bottom-home" align="right">
+		<form action="/" method="GET">
+			<input type="image" src ="/static/img/home-button.png" alt="Homepage">
+		</form>
+	</div>
+	
+		<header>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h1 class="title-big">Alien</h1>
+						<p align="left">Alien can perform static analysis to retrieve some useful information from the <i>apk</i> file,<br />
+						after that it use Android Permissions Classifier to classify (good or malicious) the application in analysis.</p>
+					</td>
+					<td>
+						<img src="/static/img/logo-small.png" >
+					</td>
+				</tr>
+			</table>
+		</header>
+		
+		<br>
+		<section>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">
+							{{ title }}
+						</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">APPLICATION NAME:</b>
+					</td>
+					<td>
+						<p align="left">{{ name }}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">MD5:</b>
+					</td>
+					<td>
+						<p align="left">{{ md5 }}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">PACKAGE NAME:</b>
+					</td>
+					<td>
+						<p align="left">{{ package }}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">MAIN ACTIVITY:</b>
+					</td>
+					<td>
+						<p align="left">{{ mainactivity }}</p>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<br>
+		<section>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Android Permissions:</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<table cellspacing="5px" cellpadding="5px">
+								<thead>
+									<tr>
+										<th>PERMISSION</th>
+										<th>STATUS</th>
+										<th>INFO </th>
+										<th>DESCRIPTION</th>
+									</tr>
+								</thead>
+								<tbody class="column-special" align="left">
+									{{ permissions | safe }}
+								</tbody>
+							</table>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<br>
+		<section>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Android Permissions Classifier</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+						The application in analysis result to be: <b>{{ type }}</b>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<br>
+		<section>
+			<table class="table-b" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Stop Analysis &amp; Train Classifier</h2>
+						<p align="left">If you've collected enough information about the file<br />
+						and you want to train the Android-Permissions Classifier immediately<br />
+						(with this new Instance) compile the form below:<br /></p>
+						<form action="/Train/" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="btn-default" align="left">
+							<input type="radio" name="app-type" id="app-type" value="good" class="button-r">good<br />
+							<input type="radio" name="app-type" id="app-type" value="malicious" class="button-r">malicious<br /><br />
+							<input type="submit" value="Train" class="button-home">
+						</div></br>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<br>
+		<section>
+			<table class="table-b" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Dynamic Analysis</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>Click to start dynamic analysis.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form action="/StartAnalysis/" method="GET">
+							<input type = "submit" value = "START" class="button-home" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<br>
+		<section>
+			<table class="table-h" align="left">
+				<tr>
+					<td>
+						<h2 class="title-normal">Files</h2>
+						<p align="left">
+							{% for file in files %}
+							{{ file }} <br>
+							{% endfor %}
+						</p>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+	</body>
+</html>
